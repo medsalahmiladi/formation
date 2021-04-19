@@ -1,0 +1,81 @@
+<!--
+<button class="btn btn-success" (click)="showAddProductForm()">Add New Product</button>
+
+<br>
+<br>
+<br>
+
+<div class="container" *ngIf="addProductForm">
+  <div class="row">
+    <div class="col-10">
+      <div class="jumbotron">
+        <h2>Add Product</h2>
+        <form name="form" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
+          <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input type="text"  class="form-control" formControlName="productName" [ngClass]="{'is-invalid':form.get('productName').touched && form.get('productName').invalid}"  />
+            <div class="invalid-feedback">
+              <div>Please write a product name</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="productDescription">Product Description</label>
+            <input type="text" class="form-control" formControlName="productDescription" [ngClass]="{'is-invalid':form.get('productDescription').touched && form.get('productDescription').invalid}" required />
+            <div class="invalid-feedback">
+              <div>Product Description is required with minimum lenght of 30 and max of 250</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="productPrice">Product Price</label>
+            <input type="number" class="form-control" formControlName="productPrice" [ngClass]="{'is-invalid':form.get('productPrice').touched && form.get('productPrice').invalid}" required />
+            <div class="invalid-feedback">
+              <div>Product Price is between 0.1 and 100000</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="categoryId">Select Category</label>
+            <select class="form-control" formControlName="categoryId"  [ngClass]="{'is-invalid':form.get('categoryId').touched && form.get('categoryId').invalid}" required>
+              <option *ngFor="let category of categories.results" [ngValue]="category.id">{{category.name}}</option>
+            </select>
+            <div class="invalid-feedback">
+              <div>Category must be selected</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary"  [disabled]="!form.valid">Add Product</button> &nbsp;
+            <button type="button" class="btn btn-warning" (click)="cancelNewProduct()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<h2> Products</h2>
+-->
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="25%" *ngFor="let product of products">
+      <mat-card class="mat-elevation-z4" >
+        <mat-card-header>
+          <mat-card-title>{{product.titel}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="assets/image.jpg">
+        <mat-card-content>
+          <p>
+            {{product.description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>{{product.price}}</button>
+          <button mat-button>TND</button>
+          <button mat-raised-button color="warn" (click)="removeProducts(product)">delete</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  </div>

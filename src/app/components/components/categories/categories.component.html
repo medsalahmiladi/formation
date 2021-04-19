@@ -1,0 +1,21 @@
+
+<div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+      <div fxFlex="25%" *ngFor="let category of categories.results">
+        <mat-card class="mat-elevation-z4" >
+          <mat-card-header>
+            <mat-card-title>{{category.name}}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="assets/2.jpeg">
+          <mat-card-content>
+            <p>
+              {{category.description}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <!-- <button mat-button color="warn" (click)="removeProduct(product)">Delete</button> -->
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+    </div>
